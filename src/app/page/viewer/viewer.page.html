@@ -15,8 +15,7 @@
           <ion-text>txtとmltとastを表示できます。ファイルの複数選択も可能です。編集と出力はできません。</ion-text>
         </ion-col>
         <ion-col size="auto">
-          <ion-input type="file" multiple="true" accept=".mlt,.ast,.txt"
-            (change)="changeInputs($event.target.files,n=0)">
+          <ion-input type="file" multiple="true" accept=".mlt,.ast,.txt" (change)="changeInputs($event.target.files,0)">
           </ion-input>
         </ion-col>
         <ion-col size="auto" *ngIf="false">
@@ -36,14 +35,14 @@
           <ion-item>
             <ion-label *ngIf="obj.codeFlag">文字コード：UTF-8 <br> ウェブページの表示に一般的な形式です。 </ion-label>
             <ion-label *ngIf="!obj.codeFlag">文字コード：Shift-JIS <br>mltやastを保存するのに一般的な形式です。</ion-label>
-            <ion-toggle [(ngModel)]="obj.codeFlag" (click)="delayMlt(n=1) "></ion-toggle>
+            <ion-toggle [(ngModel)]="obj.codeFlag" (click)="delayMlt(1) "></ion-toggle>
           </ion-item>
         </ion-col>
         <ion-col size="auto" *ngIf="obj.mlt[obj.selectNumber]">
           <ion-item>
             <ion-label>ファイル変更</ion-label>
             <ion-select [value]="obj.selectNumber" (ionChange)="obj.selectNumber =($event.target.value)"
-              (ionChange)="delayMlt(n=1)" interface="popover" [disabled]="!obj.mlt[obj.selectNumber]">
+              (ionChange)="delayMlt(1)" interface="popover" [disabled]="!obj.mlt[obj.selectNumber]">
               <ion-select-option *ngFor="let title of obj.fileName; let i=index" [value]="i">{{title}}
               </ion-select-option>
             </ion-select>
