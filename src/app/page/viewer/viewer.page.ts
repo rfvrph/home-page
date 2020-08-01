@@ -6,7 +6,7 @@ import { IonContent } from '@ionic/angular';
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.page.html',
-  styleUrls: ['./viewer.page.scss'],
+  // styleUrls: ['./viewer.page.scss'],
 })
 export class ViewerPage implements OnInit {
   constructor(private element: ElementRef, public hide: HideToolbarService) {

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-hide-button',
   templateUrl: './hide-button.component.html',
-  styleUrls: ['./hide-button.component.scss'],
+  // styleUrls: ['./hide-button.component.scss'],
 })
 export class HideButtonComponent implements OnInit {
 

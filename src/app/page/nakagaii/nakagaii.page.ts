@@ -6,7 +6,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-nakagaii',
   templateUrl: './nakagaii.page.html',
-  styleUrls: ['./nakagaii.page.scss'],
+  // styleUrls: ['./nakagaii.page.scss'],
 })
 export class NakagaiiPage implements OnInit {
 
