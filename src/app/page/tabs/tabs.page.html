@@ -1,0 +1,28 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom" *ngIf="hide.hideBarFlag">
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-tab-button routerLink="/">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>ホーム</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLink="/work">
+      <ion-icon name="documents-outline">
+      </ion-icon>
+      <ion-label>作品一覧</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLink="/other">
+      <ion-icon name="gift-outline"></ion-icon>
+      <ion-label>その他</ion-label>
+    </ion-tab-button>
+
+
+  </ion-tab-bar>
+
+</ion-tabs>

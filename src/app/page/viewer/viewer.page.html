@@ -1,0 +1,75 @@
+<ion-content [scrollX]="true" [scrollY]="true" [scrollEvents]="true">
+  <ion-item *ngFor="let m of obj.mlt[obj.selectNumber];let i=index;">
+    <ion-textarea class="Saitamaar" value="{{m}}" readonly="true" [class]="styleClass">
+    </ion-textarea>
+  </ion-item>
+</ion-content>
+
+
+<ion-footer>
+  <app-hide-button style="padding-right: 100vw;" (click)="hide.hideBar()"></app-hide-button>
+  <ion-toolbar *ngIf="hide.hideBarFlag">
+    <ion-grid class="ion-grid-padding">
+      <ion-row>
+        <ion-col size="auto" *ngIf="!obj.mlt[obj.selectNumber]">
+          <ion-text>txtとmltとastを表示できます。ファイルの複数選択も可能です。編集と出力はできません。</ion-text>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-input type="file" multiple="true" accept=".mlt,.ast,.txt"
+            (change)="changeInputs($event.target.files,n=0)">
+          </ion-input>
+        </ion-col>
+        <ion-col size="auto" *ngIf="false">
+          <ion-button color="primary" (click)="doSave()">ファイルに保存(UTF-8のみ)</ion-button>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button color="primary" (click)="doReset()" [disabled]="!resetFlag">リセット</ion-button>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-item>
+            <ion-label>リセット</ion-label>
+            <ion-checkbox [(ngModel)]="resetFlag"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="auto">
+          <ion-item>
+            <ion-label *ngIf="obj.codeFlag">文字コード：UTF-8 <br> ウェブページの表示に一般的な形式です。 </ion-label>
+            <ion-label *ngIf="!obj.codeFlag">文字コード：Shift-JIS <br>mltやastを保存するのに一般的な形式です。</ion-label>
+            <ion-toggle [(ngModel)]="obj.codeFlag" (click)="delayMlt(n=1) "></ion-toggle>
+          </ion-item>
+        </ion-col>
+        <ion-col size="auto" *ngIf="obj.mlt[obj.selectNumber]">
+          <ion-item>
+            <ion-label>ファイル変更</ion-label>
+            <ion-select [value]="obj.selectNumber" (ionChange)="obj.selectNumber =($event.target.value)"
+              (ionChange)="delayMlt(n=1)" interface="popover" [disabled]="!obj.mlt[obj.selectNumber]">
+              <ion-select-option *ngFor="let title of obj.fileName; let i=index" [value]="i">{{title}}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <ion-col size="auto" *ngIf="obj.mlt[obj.selectNumber]">
+          <ion-text>サイズ目安 小:スマホ横画面 中:タブレット縦</ion-text>
+          <ion-item lines="none">
+            <ion-button class="ion-margin-horizontal" [disabled]="!obj.mlt[obj.selectNumber]"
+              (click)="sizeChangeTwoTimes(0)">小
+            </ion-button>
+            <ion-button [disabled]="!obj.mlt[obj.selectNumber]" (click)="sizeChangeTwoTimes(1)"
+              class="ion-margin-horizontal">中
+            </ion-button>
+            <ion-button [disabled]="!obj.mlt[obj.selectNumber]" (click)="sizeChangeTwoTimes(2)"
+              class="ion-margin-horizontal">デフォ
+            </ion-button>
+
+
+
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-note color="danger">*ファイル追加後は追加前のファイルの文字コードは変更できません。</ion-note>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

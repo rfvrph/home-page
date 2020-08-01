@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="ion-margin-top ion-float-left">作品一覧(一部)</ion-title>
+
+      <ion-button color="secondary" class="ion-float-left ion-margin-top" size="small"
+        href="https://rss.r401.net/yaruo/author/5180" target="_blank">
+        <ion-icon name="open-outline" slot="end"></ion-icon>
+        他作品はこちら
+      </ion-button>
+
+
+
+    </ion-toolbar>
+  </ion-header>
+
+
+
+  <ion-text *ngFor="let p of portfolios">
+
+    <ion-card href="{{p.url}}" *ngIf="p.outside" target="_blank">
+      <ion-card-header>
+        <ion-card-subtitle>{{p.date}} 全{{p.episode}}話</ion-card-subtitle>
+        <ion-card-title>{{p.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        掲載：{{p.blog}}様
+        <ion-icon name="open-outline" slot="end"></ion-icon>
+      </ion-card-content>
+    </ion-card>
+    <ion-card routerLink="{{p.url}}" *ngIf="!p.outside">
+      <ion-card-header>
+        <ion-card-subtitle>{{p.date}} 全{{p.episode}}話</ion-card-subtitle>
+        <ion-card-title>{{p.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        掲載：{{p.blog}}
+      </ion-card-content>
+    </ion-card>
+
+
+  </ion-text>
+
+</ion-content>

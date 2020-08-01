@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button routerLink="/other">
+        <ion-icon slot="icon-only" name="arrow-undo-outline"></ion-icon>
+      </ion-button>
+      <ion-title>AA粉化(仮)(β)</ion-title>
+    </ion-buttons>
+
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="ion-margin-start">
+    置換前・後の文字列群は編集可能ですが、ページを更新すると初期化されます。<br>
+    置換前後で横幅があってないため、AAはズレます。┃あたりで右揃えしてから実行してください。<br>
+    用途は<a href="http://touhouyaruosure.com/blog-entry-6336.html">本スレ</a>をどうぞ。
+    <ion-button (click)="aaTrance()" fill="outline" shape="round">
+      変換
+    </ion-button>
+    <ion-button (click)="reset()" fill="outline" shape="round">
+      リセット
+    </ion-button>
+  </p>
+  <ion-grid>
+    <ion-row>
+
+
+      <ion-col size="5">
+        <ion-item>
+          <ion-label position="stacked" class="ion-padding-start">AAを入力</ion-label>
+          <ion-textarea class="Saitamaar" rows="20" [(ngModel)]="aaInp"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col size="1">
+        <ion-item>
+          <ion-label position="stacked" class="ion-text-center">置換前</ion-label>
+          <ion-textarea class="Saitamaar ion-text-center" rows="20" [(ngModel)]="replaceBeforeWord"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col size="1">
+        <ion-item>
+          <ion-label position="stacked" class="ion-text-center">置換後</ion-label>
+          <ion-textarea class="Saitamaar ion-text-center" rows="20" [(ngModel)]="replaceAfterWord"></ion-textarea>
+        </ion-item>
+      </ion-col>
+      <ion-col size="5">
+        <ion-item>
+          <ion-label position="stacked" class="ion-padding-start">変換後</ion-label>
+          <ion-textarea class="Saitamaar" rows="20" [(ngModel)]="aaOut"></ion-textarea>
+        </ion-item>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
