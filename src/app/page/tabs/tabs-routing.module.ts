@@ -30,6 +30,10 @@ const routes: Routes = [
         loadChildren: () => import('../viewer/viewer.module').then(m => m.ViewerPageModule)
       },
       {
+        path: 'other/reader',
+        loadChildren: () => import('../viewer/viewer.module').then(m => m.ViewerPageModule)
+      },
+      {
         path: '',
         redirectTo: '/',
         pathMatch: 'full'
