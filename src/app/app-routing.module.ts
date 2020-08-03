@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./page/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'other/viewer',
+    path: 'other/reader',
     loadChildren: () => import('./page/viewer/viewer.module').then(m => m.ViewerPageModule)
   },
 

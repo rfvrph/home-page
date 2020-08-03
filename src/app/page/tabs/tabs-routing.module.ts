@@ -23,7 +23,7 @@ const routes: Routes = [
         path: 'other/replace',
         loadChildren: () => import('../replace/replace.module').then(m => m.ReplacePageModule)
       }, {
-        path: 'other/reader',
+        path: 'other/viewer',
         loadChildren: () => import('../viewer/viewer.module').then(m => m.ViewerPageModule)
       }, {
         path: '',
