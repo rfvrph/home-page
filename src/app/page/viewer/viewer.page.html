@@ -6,7 +6,6 @@
   </ion-item>
 </ion-content>
 
-
 <ion-footer>
   <app-hide-button style="padding-right: 100vw;" (click)="hide.hideBar()"></app-hide-button>
   <ion-toolbar *ngIf="hide.hideBarFlag">
@@ -31,7 +30,6 @@
             <ion-checkbox [(ngModel)]="resetFlag"></ion-checkbox>
           </ion-item>
         </ion-col>
-
         <ion-col size="auto">
           <ion-item>
             <ion-label *ngIf="obj.codeFlag">文字コード：UTF-8 <br> ウェブページの表示に一般的な形式です。 </ion-label>
@@ -61,14 +59,12 @@
             <ion-button [disabled]="!obj.mlt[obj.selectNumber]||sizeNumber===2" (click)="sizeChangeTwoTimes(2)"
               class="ion-margin-horizontal">デフォ
             </ion-button>
-
-
-
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-note color="danger">*ファイル追加後は追加前のファイルの文字コードは変更できません。</ion-note>
+        <ion-note color="danger">*ファイル追加後は追加前のファイルの文字コードは変更できません。<br>*ファイル複数選択時にファイル名順に選択しないとき、ファイル名と内容が一致しないことがあります。
+        </ion-note>
       </ion-row>
     </ion-grid>
   </ion-toolbar>

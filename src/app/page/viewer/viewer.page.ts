@@ -51,9 +51,7 @@ export class ViewerPage implements OnInit {
     for (let i = 0; i < this.obj.mlt[this.obj.selectNumber].length; i++) {
 
       const textArea = this.element.nativeElement.getElementsByTagName('textarea')[i];
-      textArea.style.overflow = 'hidden';
-      textArea.style.height = 'auto';
-      textArea.style.height = textArea.scrollHeight + 'px';
+
       switch (n) {
         case 0:
           this.styleClass = 'font-size-small';
@@ -67,6 +65,9 @@ export class ViewerPage implements OnInit {
         default:
           break;
       }
+      textArea.style.overflow = 'hidden';
+      textArea.style.height = 'auto';
+      textArea.style.height = textArea.scrollHeight + 'px';
       this.ScrollToTop();
       localStorage.sizeNumber = JSON.stringify(this.sizeNumber);
     }
