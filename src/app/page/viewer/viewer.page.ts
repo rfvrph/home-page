@@ -32,7 +32,7 @@ export class ViewerPage implements OnInit {
       fileLength: 0
     };
   styleClass: string;
-  sizeNumber: number;
+  sizeNumber = 2;
   @ViewChild(IonContent, { static: true }) content: IonContent;
   resetFlag: boolean;
 

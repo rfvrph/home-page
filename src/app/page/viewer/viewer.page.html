@@ -1,5 +1,6 @@
 <ion-content [scrollX]="true" [scrollY]="true" [scrollEvents]="true">
   <ion-item *ngFor="let m of obj.mlt[obj.selectNumber];let i=index;">
+    <ion-note [id]="'ress'+i">{{i+1}}</ion-note>
     <ion-textarea class="Saitamaar" value="{{m}}" readonly="true" [class]="styleClass">
     </ion-textarea>
   </ion-item>
@@ -51,13 +52,13 @@
         <ion-col size="auto" *ngIf="obj.mlt[obj.selectNumber]">
           <ion-text>サイズ目安 小:スマホ横画面 中:タブレット縦</ion-text>
           <ion-item lines="none">
-            <ion-button class="ion-margin-horizontal" [disabled]="!obj.mlt[obj.selectNumber]"
+            <ion-button class="ion-margin-horizontal" [disabled]="!obj.mlt[obj.selectNumber]||sizeNumber===0"
               (click)="sizeChangeTwoTimes(0)">小
             </ion-button>
-            <ion-button [disabled]="!obj.mlt[obj.selectNumber]" (click)="sizeChangeTwoTimes(1)"
+            <ion-button [disabled]="!obj.mlt[obj.selectNumber]||sizeNumber===1" (click)="sizeChangeTwoTimes(1)"
               class="ion-margin-horizontal">中
             </ion-button>
-            <ion-button [disabled]="!obj.mlt[obj.selectNumber]" (click)="sizeChangeTwoTimes(2)"
+            <ion-button [disabled]="!obj.mlt[obj.selectNumber]||sizeNumber===2" (click)="sizeChangeTwoTimes(2)"
               class="ion-margin-horizontal">デフォ
             </ion-button>
 
