@@ -7,7 +7,6 @@ export class HideToolbarService {
   hideBarFlag = true;
 
   hideBar() {
-    console.log(this.hideBarFlag);
     return this.hideBarFlag = !this.hideBarFlag;
   }
   constructor() { }
