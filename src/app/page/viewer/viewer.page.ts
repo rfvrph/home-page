@@ -145,11 +145,13 @@ export class ViewerPage implements OnInit {
         } else {
           // ファイルを追加したとき、配列に追加する。
           this.obj.mlt.push(lines);
+          this.obj.selectNumber = this.obj.mlt.length - this.obj.files.length;
         }
       };
     }
     if (n !== 1) {
       this.obj.fileLength += this.obj.files.length;
+
     }
     // localStorage.tmpObj = JSON.stringify(this.obj);
     setTimeout(() => this.sizeChangeTwoTimes(this.sizeNumber), 1000);
