@@ -1,9 +1,10 @@
 <ion-content [scrollX]="true" [scrollY]="true" [scrollEvents]="true">
   <ion-item *ngFor="let m of obj.mlt[obj.selectNumber];let i=index;">
     <ion-note [id]="'ress'+i">{{i+1}}</ion-note>
-    <ion-textarea class="Saitamaar" value="{{m}}" readonly="true" [class]="styleClass">
-    </ion-textarea>
+    <ion-text class="Saitamaar" innerHTML="{{m}}" readonly="true" [class]="styleClass">
+    </ion-text>
   </ion-item>
+
 </ion-content>
 
 <ion-footer>
