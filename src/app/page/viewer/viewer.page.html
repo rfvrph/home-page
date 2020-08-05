@@ -8,9 +8,9 @@
 </ion-content>
 
 <ion-footer>
-  <app-hide-button style="padding-right: 100vw;" (click)="hide.hideBar()"></app-hide-button>
-  <ion-toolbar *ngIf="hide.hideBarFlag">
-    <ion-grid class="ion-grid-padding">
+  <ion-toolbar>
+    <app-hide-button style="padding-right: 100vw;" (click)="hide.hideBar()"></app-hide-button>
+    <ion-grid class="ion-grid-padding" *ngIf="hide.hideBarFlag">
       <ion-row>
         <ion-col size="auto" *ngIf="!obj.mlt[obj.selectNumber]">
           <ion-text>txtとmltとastを表示できます。ファイルの複数選択も可能です。編集と出力はできません。</ion-text>

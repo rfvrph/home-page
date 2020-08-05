@@ -6,23 +6,26 @@
 
 
 <ion-footer>
-  <app-hide-button style="padding-right: 100vw;" (click)="hide.hideBar()"></app-hide-button>
-  <ion-toolbar *ngIf="hide.hideBarFlag">
-    <ion-buttons>
-      <ion-button (click)="onClick(-1)" [disabled]="!isClose">
-        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+
+  <ion-toolbar>
+    <app-hide-button style="padding-right: 100vw;" (click)="hide.hideBar()"></app-hide-button>
+    <ng-container *ngIf="hide.hideBarFlag">
+      <ion-buttons>
+        <ion-button (click)="onClick(-1)" [disabled]="!isClose">
+          <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="onClick(i-1)" [disabled]="goBack" (click)="ScrollToTop()">
+          <ion-icon slot="icon-only" name="caret-back-outline"></ion-icon>
+        </ion-button>
+        <ion-label *ngIf="isClose">{{i+41}}話</ion-label>
+        <ion-button (click)="onClick(i+1)" [disabled]="goNext" (click)="ScrollToTop()">
+          <ion-icon slot="icon-only" name="caret-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-button class="ion-margin-top" [fill]="episode.style" shape="round" (click)="onClick(i)"
+        (click)="ScrollToTop()" *ngFor="let episode of episodes; let i=index">
+        <div>{{i+41}}話</div>
       </ion-button>
-      <ion-button (click)="onClick(i-1)" [disabled]="goBack" (click)="ScrollToTop()">
-        <ion-icon slot="icon-only" name="caret-back-outline"></ion-icon>
-      </ion-button>
-      <ion-label *ngIf="isClose">{{i+41}}話</ion-label>
-      <ion-button (click)="onClick(i+1)" [disabled]="goNext" (click)="ScrollToTop()">
-        <ion-icon slot="icon-only" name="caret-forward-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-button class="ion-margin-top" [fill]="episode.style" shape="round" (click)="onClick(i)" (click)="ScrollToTop()"
-      *ngFor="let episode of episodes; let i=index">
-      <div>{{i+41}}話</div>
-    </ion-button>
+    </ng-container>
   </ion-toolbar>
 </ion-footer>
