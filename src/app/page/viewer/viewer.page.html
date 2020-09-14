@@ -1,10 +1,14 @@
 <ion-content [scrollX]="true" [scrollY]="true" [scrollEvents]="true">
   <ion-item *ngFor="let m of obj.mlt[obj.selectNumber];let i=index;">
     <ion-note [id]="'ress'+i">{{i+1}}</ion-note>
-    <ion-text class="Saitamaar" innerHTML="{{m}}" readonly="true" [class]="styleClass">
-    </ion-text>
+    <ion-textarea class="Saitamaar" [innerHTML]="m" readonly="true" disabled="true" [class]="styleClass">
+    </ion-textarea>
   </ion-item>
-
+  <!-- 
+    iontextにすると、行数制限あり？
+    textareaなら解決する？
+    => innerHTMLの場合、 '<'があると終了する
+   -->
 </ion-content>
 
 <ion-footer>

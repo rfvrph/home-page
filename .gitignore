@@ -30,3 +30,5 @@ npm-debug.log*
 /plugins
 /www
 /src/app/service/contents/
+/src/assets/encoding-japanese/
+src/assets/mlts/
