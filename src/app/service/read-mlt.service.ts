@@ -32,7 +32,7 @@ export class ReadMltService {
   ionViewDidEnter() {
 
   }
-  async makeArray(arrayFilePath: string[],) {
+  async makeArray(arrayFilePath: string[]) {
     const array: string[] = [];
     for (const path of arrayFilePath) {
       const s = await this.encode(path);
@@ -47,7 +47,6 @@ export class ReadMltService {
     const res = await fetch(url);
     const content = await res.arrayBuffer();
     const fileName = res.url;
-    console.log('path', filePath);
 
     if (content) {
       // Shift_JIS Array
@@ -64,9 +63,6 @@ export class ReadMltService {
       const unicodeString = Encoding.codeToString(unicodeArray);
       // document.getElementById(id).classList.add('Saitamaar');
       // document.getElementById(id).innerHTML = unicodeString;
-
-
-
 
       if ((/.mlt$/).test(fileName)) {
         // const fileType = 'mlt';
