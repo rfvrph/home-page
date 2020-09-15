@@ -15,7 +15,8 @@ export class TabsPage {
 
     // Listen for the toggle check/uncheck to toggle the dark class on the <body>
     toggle.addEventListener('ionChange', (ev) => {
-      document.body.classList.toggle('dark', ev.detail.checked);
+      document.body.classList.toggle('dark',);
+      // document.body.classList.toggle('dark', ev.detail.checked);
     });
 
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
@@ -28,7 +29,7 @@ export class TabsPage {
 
     // Called by the media query to check/uncheck the toggle
     function checkToggle(shouldCheck) {
-      toggle.checked = shouldCheck;
+      // toggle.checked = shouldCheck;
     }
     function loadApp() {
       checkToggle(prefersDark.matches);
