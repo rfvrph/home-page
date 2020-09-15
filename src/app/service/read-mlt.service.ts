@@ -17,7 +17,7 @@ export class ReadMltService {
   //   this.func();
   // }
   // async func() {
-  //   this.contents = await this.readMltService.loop(this.names);
+  //   this.contents = await this.readMltService.makeArray(this.names);
   // }
 
   // page.html
@@ -32,13 +32,12 @@ export class ReadMltService {
   ionViewDidEnter() {
 
   }
-  async loop(arrayFilePath: string[],) {
+  async makeArray(arrayFilePath: string[],) {
     const array: string[] = [];
     for (const path of arrayFilePath) {
       const s = await this.encode(path);
-      await array.push(s);
+      array.push(s);
     }
-    console.log('a', array);
     return array;
   }
 
