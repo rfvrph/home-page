@@ -127,7 +127,8 @@ export class ViewerPage implements OnInit {
       reader.readAsText(this.obj.files.item(j), this.obj.code);
       reader.onload = () => {
 
-        const fileContent: string = reader.result as string;
+        const fileContents: string = reader.result as string;
+        const fileContent = fileContents.replace(/</g, '&lt;');
         // console.log(fileContent);
         // 文字コードここは変わる
         // fileにしたときutf-8に変わるのは仕様
@@ -137,6 +138,7 @@ export class ViewerPage implements OnInit {
           lines = fileContent.split(/^\[AA]\[.*\]$/m);
           lines.shift();
         } else {
+
           lines[0] = fileContent;
         }
         if (n === 1) {
