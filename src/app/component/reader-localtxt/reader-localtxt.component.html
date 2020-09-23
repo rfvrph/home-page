@@ -1,5 +1,13 @@
-<ng-container *ngFor="let out of output;let i = index;">
-  <ion-note>{{1+i}}</ion-note>
-  <ion-textarea class="Saitamaar" style="padding-left:2rem;" [innerHTML]="out">
+<div *ngIf="id===0">下記ボタンから話を選択してください。</div>
+
+<ng-container *ngIf="fileType[id-1]">
+  <ng-container *ngFor="let out of output;let i = index;">
+    <ion-note>{{1+i}}</ion-note>
+    <ion-textarea class="Saitamaar" style="padding-left:2rem;" [innerHTML]="out">
+    </ion-textarea>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="!fileType[id-1]">
+  <ion-textarea class="Saitamaar" style="padding-left:2rem;" [innerHTML]="output">
   </ion-textarea>
 </ng-container>

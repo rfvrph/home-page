@@ -14,7 +14,7 @@ const routes: Routes = [
         path: 'work',
         loadChildren: () => import('../work/work.module').then(m => m.WorkPageModule)
       }, {
-        path: 'work/nakagaii',
+        path: 'work/nakagaii/:id',
         loadChildren: () => import('../nakagaii/nakagaii.module').then(m => m.NakagaiiPageModule)
       }, {
         path: 'other',

@@ -20,7 +20,7 @@ export class WorkPage implements OnInit {
         outside: true,
       }, {
         title: 'やる夫と蒼星石は仲がいい(41話～58話)',
-        url: 'nakagaii',
+        url: 'nakagaii/0',
         blog: '当サイト',
         date: '',
         episode: '-',

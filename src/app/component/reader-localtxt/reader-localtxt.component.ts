@@ -16,7 +16,8 @@ export class ReaderLocaltxtComponent implements OnInit {
   // 複数個のファイルの中身を取得
   output: string[];
   // 上から１つファイル分の中身を取得
-
+  fileType: boolean[] = [];
+  // txtのときfalse
 
   // usage
   // ionic g page episode
@@ -48,6 +49,7 @@ export class ReaderLocaltxtComponent implements OnInit {
     });
     this.outputs = await this.makeArray(this.paths);
     this.output = this.outputs[this.id - 1];
+
   }
 
   async makeArray(arrayFilePath: string[]) {
@@ -63,6 +65,9 @@ export class ReaderLocaltxtComponent implements OnInit {
     const url = '/assets/mlts/' + filePath;
     // 保存場所の指定
     const res = await fetch(url);
+    // .then((res) => res)
+    // .catch(() => { throw new Error('読み込みエラー'); }
+    // );
     const content = await res.arrayBuffer();
     const fileName = res.url;
     if (content) {
@@ -75,18 +80,18 @@ export class ReaderLocaltxtComponent implements OnInit {
       });
       // Join to string.
       const unicodeString = Encoding.codeToString(unicodeArray);
-
+      const replaceString = unicodeString.replace(/</g, '&lt;');
       if ((/.mlt$/).test(fileName)) {
-        // const fileType = 'mlt';
-        const lines = unicodeString.split(/\[SPLIT\]/m);
+        this.fileType.push(true);
+        const lines = replaceString.split(/\[SPLIT\]/m);
         return lines;
       } else if ((/.ast$/).test(fileName)) {
-        // const fileType = 'ast';
-        const lines = unicodeString.split(/^\[AA]\[.*\]$/m).shift();
+        this.fileType.push(true);
+        const lines = replaceString.split(/^\[AA]\[.*\]$/m).shift();
         return lines;
       } else if ((/.txt$/).test(fileName)) {
-        // const fileType = 'txt';
-        const lines = unicodeString;
+        this.fileType.push(false);
+        const lines = replaceString;
         return lines;
       }
     }
