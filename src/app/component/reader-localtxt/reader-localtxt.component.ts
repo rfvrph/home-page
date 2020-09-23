@@ -12,7 +12,6 @@ export class ReaderLocaltxtComponent implements OnInit {
   @Input() paths: string[];
   id: number;
   // ファイル名を配列で取得
-
   outputs: string[][];
   // 複数個のファイルの中身を取得
   output: string[];
@@ -41,10 +40,7 @@ export class ReaderLocaltxtComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute
-  ) {
-
-
-  }
+  ) { }
 
   async ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -60,7 +56,6 @@ export class ReaderLocaltxtComponent implements OnInit {
       const s = await this.encode(path);
       array.push(s);
     }
-
     return array;
   }
 
@@ -70,29 +65,21 @@ export class ReaderLocaltxtComponent implements OnInit {
     const res = await fetch(url);
     const content = await res.arrayBuffer();
     const fileName = res.url;
-
     if (content) {
       // Shift_JIS Array
       const sjisArray = new Uint8Array(content);
-
       // Convert encoding to UNICODE (JavaScript Unicode Array).
       const unicodeArray = Encoding.convert(sjisArray, {
         to: 'UNICODE',
         from: 'SJIS'
       });
-
-
       // Join to string.
       const unicodeString = Encoding.codeToString(unicodeArray);
-      // document.getElementById(id).classList.add('Saitamaar');
-      // document.getElementById(id).innerHTML = unicodeString;
 
       if ((/.mlt$/).test(fileName)) {
         // const fileType = 'mlt';
         const lines = unicodeString.split(/\[SPLIT\]/m);
-
         return lines;
-
       } else if ((/.ast$/).test(fileName)) {
         // const fileType = 'ast';
         const lines = unicodeString.split(/^\[AA]\[.*\]$/m).shift();
@@ -103,9 +90,5 @@ export class ReaderLocaltxtComponent implements OnInit {
         return lines;
       }
     }
-
-  }
-  selectTitle() {
-
   }
 }
