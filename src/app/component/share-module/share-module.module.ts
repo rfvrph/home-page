@@ -1,3 +1,4 @@
+import { ReaderLocaltxtComponent } from './../reader-localtxt/reader-localtxt.component';
 import { LinkButtonComponent } from './../link-button/link-button.component';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
@@ -9,7 +10,8 @@ import { HideButtonComponent } from '../hide-button/hide-button.component';
 @NgModule({
   declarations: [
     LinkButtonComponent,
-    HideButtonComponent
+    HideButtonComponent,
+    ReaderLocaltxtComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { HideButtonComponent } from '../hide-button/hide-button.component';
   ],
   exports: [
     LinkButtonComponent,
-    HideButtonComponent
+    HideButtonComponent,
+    ReaderLocaltxtComponent
   ]
 
 })
