@@ -1,4 +1,4 @@
-<div *ngIf="id===0">下記ボタンから話を選択してください。</div>
+<ng-container *ngIf="id===0">下記ボタンから話を選択してください。</ng-container>
 
 <ng-container *ngIf="fileType[id-1]">
   <ng-container *ngFor="let out of output;let i = index;">

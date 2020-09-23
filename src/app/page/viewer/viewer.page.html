@@ -1,9 +1,9 @@
-<ion-content [scrollX]="true" [scrollY]="true" [scrollEvents]="true">
-  <ion-item *ngFor="let m of obj.mlt[obj.selectNumber];let i=index;">
+<ion-content [scrollX]="true">
+  <ng-container *ngFor="let m of obj.mlt[obj.selectNumber];let i=index;">
     <ion-note [id]="'ress'+i">{{i+1}}</ion-note>
-    <ion-textarea class="Saitamaar" [innerHTML]="m" readonly="true" disabled="true" [class]="styleClass">
+    <ion-textarea class="Saitamaar" [innerHTML]="m" [class]="styleClass">
     </ion-textarea>
-  </ion-item>
+  </ng-container>
   <!-- 
     iontextにすると、行数制限あり？
     textareaなら解決する？

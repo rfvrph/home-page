@@ -1,5 +1,10 @@
 <ion-content [scrollX]="true">
   <app-reader-localtxt [paths]="paths"></app-reader-localtxt>
+  <p>
+    <ion-button routerLink="/work/nakagaii/{{id-1}}" [disabled]="id-1<1">前</ion-button>
+    <span *ngIf="0<id">ここは{{40+id}}話です。</span>
+    <ion-button routerLink="/work/nakagaii/{{id+1}}" [disabled]="id+1>18">次</ion-button>
+  </p>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
