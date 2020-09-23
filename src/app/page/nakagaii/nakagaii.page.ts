@@ -1,9 +1,6 @@
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { HideToolbarService } from './../../service/hide-toolbar.service';
-import { NakagaiiService } from './../../service/contents/nakagaii.service';
-import { IonContent } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
-
 @Component({
   selector: 'app-nakagaii',
   templateUrl: './nakagaii.page.html',
