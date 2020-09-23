@@ -16,7 +16,7 @@ export class ReaderLocaltxtComponent implements OnInit {
   outputs: string[][];
   // 複数個のファイルの中身を取得
   output: string[];
-  // 上から１つ分の中身を取得
+  // 上から１つファイル分の中身を取得
 
 
   // usage
@@ -33,7 +33,7 @@ export class ReaderLocaltxtComponent implements OnInit {
   // <a href="/episode/2">2話</a>
 
   // episode.page.ts
-  // array=['example1.mlt','test/example2.mlt']
+  // array=['example1.mlt','test/example2.mlt'](ローカルのファイルのパスを入力)
 
   // mlt保存場所
   // assets/mlts/example1.mlt
@@ -60,7 +60,7 @@ export class ReaderLocaltxtComponent implements OnInit {
       const s = await this.encode(path);
       array.push(s);
     }
-    console.log(array);
+
     return array;
   }
 
@@ -90,7 +90,7 @@ export class ReaderLocaltxtComponent implements OnInit {
       if ((/.mlt$/).test(fileName)) {
         // const fileType = 'mlt';
         const lines = unicodeString.split(/\[SPLIT\]/m);
-        console.log('line', lines);
+
         return lines;
 
       } else if ((/.ast$/).test(fileName)) {
